@@ -1,0 +1,26 @@
+{
+  "gastos": [
+    {
+      "mail": "user1@example.com",
+      "token": "token123",
+      "timestamp": "2024-01-01T10:00:00.000Z",
+      "concepto": "Comida",
+      "direccion": "Calle 123",
+      "lat": "40.7128",
+      "long": "-74.0060",
+      "image": "https://example.com/image1.jpg",
+      "id": "090d"
+    },
+    {
+      "mail": "user2@example.com",
+      "token": "token456",
+      "timestamp": "2024-01-02T15:30:00.000Z",
+      "concepto": "Transporte",
+      "direccion": "Avenida XYZ",
+      "lat": "34.0522",
+      "long": "-118.2437",
+      "image": "https://example.com/image2.jpg",
+      "id": "ca04"
+    }
+  ]
+}
