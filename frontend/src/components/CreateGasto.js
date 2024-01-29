@@ -33,19 +33,33 @@ const CreateGasto = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Assuming onSubmit is a prop function passed from the parent component
-    onSubmit(formData);
-    // Optionally, you can reset the form after submission
-    setFormData({
-      mail: '',
-      token: '',
-      timestamp: '',
-      concepto: '',
-      direccion: '',
-      lat: '',
-      long: '',
-      image: '',
-    });
+
+    const response = await fetch('http://localhost:4000/', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+
+        if(!response.ok) {
+            setError(json.error)
+        }
+        if(response.ok) {
+            setFormData({
+              mail: '',
+              token: '',
+              timestamp: '',
+              concepto: '',
+              direccion: '',
+              lat: '',
+              long: '',
+              image: '',
+            });
+            console.log('new gasto added', json)
+        }
+    }
   };
 
   return (
@@ -75,6 +89,5 @@ const CreateGasto = ({ onSubmit }) => {
       <button type="submit">Submit</button>
     </form>
   );
-};
 
 export default CreateGasto;
