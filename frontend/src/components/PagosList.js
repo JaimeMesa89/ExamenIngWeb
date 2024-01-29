@@ -4,7 +4,7 @@ import CloudinaryImage from '../components/CloudinaryImage'
 const PagosList = ({pagos}) => {
 
   const handleClick = (id) => {
-    fetch('http://localhost:3000/' + id,{
+    fetch('http://localhost:4000/api/gastos/' + id,{
         method: 'DELETE'
     }).then(() => {
       //
@@ -15,16 +15,16 @@ const PagosList = ({pagos}) => {
       <h2>Pagos</h2>
       {pagos.map(pago => (
         <div className='pagos-preview' key={pago._id}>
-            <h2>{pago.timestamp}</h2>
+            <h3>{pago.concepto}</h3>
             <p>{pago.mail}</p>
-            <p>{pago.concepto}</p>
             <p>{pago.direccion}</p>
-            <p>{pago.importe}</p>
             <img src={CloudinaryImage(pago.image)}  alt={"Imagen"}/>
             <br/>
-            <button onClick={handleClick(pago._id)}> Delete </button>
+            <button onClick={() => handleClick(pago._id)}>Delete</button>
         </div>
       ))}
+      <br/>
+      <br/>
     </div>
   );
 };

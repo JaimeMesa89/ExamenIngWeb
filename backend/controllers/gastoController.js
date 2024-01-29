@@ -27,10 +27,10 @@ const getGasto = async(req, res) => {
 
 // create new gasto
 const createGasto = async(req, res) => {
-    const {name, timestamp, place, lat, long, organizer, image} = req.body
+    const {mail, token, concepto, direccion, lat, long, image} = req.body
 
     try {
-        const gasto = await Gasto.create({name, timestamp, place, lat, long, organizer, image})
+        const gasto = await Gasto.create({mail, token, concepto, direccion, lat, long, image})
         res.status(200).json(gasto)
     } catch (error) {
         res.status(400).json({error: error.message})

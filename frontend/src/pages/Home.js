@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
 
     const fetchPagos = async () => {
-      const response = await fetch("http://localhost:4000/");
+      const response = await fetch("http://localhost:4000/api/gastos/");
       const json = await response.json();
 
       if (response.ok) {

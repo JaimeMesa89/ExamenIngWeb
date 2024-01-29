@@ -34,9 +34,16 @@ const CreateGasto = ({ onSubmit }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:4000/', {
+    const updatedFormData = {
+      ...formData,
+      lat: formData.lat || '36.719444',
+      long: formData.long || '4.420000',
+      // image: formData.long || 'wbolbjfswfqxkxnpwdja',
+    };
+
+    const response = await fetch('http://localhost:4000/api/gastos/', {
             method: 'POST',
-            body: JSON.stringify(formData),
+            body: JSON.stringify(updatedFormData),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -44,13 +51,12 @@ const CreateGasto = ({ onSubmit }) => {
         const json = await response.json()
 
         if(!response.ok) {
-            setError(json.error)
+            console.log(json.error)
         }
         if(response.ok) {
             setFormData({
               mail: '',
               token: '',
-              timestamp: '',
               concepto: '',
               direccion: '',
               lat: '',
