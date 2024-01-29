@@ -31,7 +31,7 @@ const CreateGasto = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const response = await fetch('http://localhost:4000/', {
