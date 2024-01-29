@@ -59,7 +59,6 @@ const CreateGasto = ({ onSubmit }) => {
             });
             console.log('new gasto added', json)
         }
-    }
   };
 
   return (
@@ -89,5 +88,6 @@ const CreateGasto = ({ onSubmit }) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
 
 export default CreateGasto;
